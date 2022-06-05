@@ -1,0 +1,43 @@
+/* Rules for sizing the icon. */
+.material-icons.md-16 { font-size: 16px; }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-in { font-size: inherit; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+i.material-icons {
+    vertical-align: middle !important;
+}
+
+.material-icons.add::before { content: 'add' }
+.material-icons.edit::before { content: 'edit' }
+.material-icons.refresh::before { content: 'refresh' }
+.material-icons.info::before { content: 'info' }
+
+
+.material-icons.delete::before { content: 'delete' }
+.material-icons.delete_forever::before { content: 'delete_forever' }
+.material-icons.delete_outline::before { content: 'delete_outline' }
+.material-icons.delete_sweep::before { content: 'delete_sweep' }
+
+.material-icons.menu::before { content: 'menu' }
+
+.material-icons.arrow_drop_down_circle::before { content: 'arrow_drop_down_circle' }
+.material-icons.check_circle_outline::before { content: 'check_circle_outline' }
+
+.material-icons.arrow_downward::before { content: 'arrow_downward' }
+.material-icons.arrow_upward::before { content: 'arrow_upward' }
+
+.material-icons.settings_ethernet::before { content: 'settings_ethernet' }
+
+.material-icons.payment::before { content: 'payment' }
+.material-icons.attach_money::before { content: 'attach_money' }

@@ -1,0 +1,7 @@
+<h1 mat-dialog-title *ngIf="data.message.title">{{data.message.title}}</h1>
+<div mat-dialog-content>
+    <div class="message" [innerHTML]="data.message.message"></div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="executeAction(b.value)" *ngFor="let b of data.actions" [color]="b.color">{{b.label}}</button>
+</div>

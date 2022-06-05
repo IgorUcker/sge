@@ -1,0 +1,87 @@
+.menu-principal {
+  position: fixed;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+}
+
+.footer-bar {
+  background-color: #e8e8e8;
+  position: fixed;
+  height: 20px;
+  bottom: 0;
+  font-size: 11px;
+  z-index: 2000;
+  left: 0;
+  right: 0;
+  padding: 0px 15px;
+
+  div {
+    width: 50%;
+    align-items: center;
+    display: flex;
+  }
+}
+
+.sge-mat-sidenav-container {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.sge-mat-sidenav-content {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+//largura sidenav
+.sge-mat-sidenav {
+  min-width: 350px;
+}
+//posicionamento logo menu
+.sge-mat-sidenav-title {
+  text-align: center;
+  padding: 15px 15px;
+}
+
+.menu-tree-invisible {
+  display: none;
+}
+
+.menu-tree ul,
+.menu-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.menu-tree .mat-tree-node {
+  font-size: 1rem;
+  min-height: 40px;
+  cursor: pointer;
+}
+
+.menu-tree ul {
+  padding-left: 15px;
+}
+
+.icon-rigth {
+  flex: 1 1 auto;
+}
+
+.icon-account {
+  font-size: 35px;
+  cursor: pointer;
+  min-inline-size: min-content;
+  height: 35px !important;
+  // display: table-header-group;
+}
+
+.nome-usuario {
+  font-size: 15px;
+  padding-right: 10px;
+  // font-weight: bold;
+}
