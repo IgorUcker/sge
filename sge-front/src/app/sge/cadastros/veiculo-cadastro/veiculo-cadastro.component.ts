@@ -60,7 +60,7 @@ export class VeiculoCadastroComponent implements OnInit {
   }
 
   voltar(): void {
-    this._router.navigate(['/sge/cadastros/veiculo']);
+    // this._router.navigate(['/sge/cadastros/veiculo']);
   }
 
 }
