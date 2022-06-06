@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -23,15 +22,13 @@ import br.com.sgelider.sge.utils.DatabaseUtils;
 @Service
 public class ProdutoService {
 	
-	@PersistenceContext(unitName = SgeLiderApplication.PERSISTENCE_UNIT_NAME_TENANCY)
+	@PersistenceContext()
     private EntityManager manager;
 	
-	@Autowired
-	private ProdutoService produtoService;
 	
 	public Page<Produto> findAll(Pageable paginacao, String termo) {
         StringBuilder sql = new StringBuilder();
-        sql.append("select * from produto p ");
+        sql.append("select * from modelo.produto p ");
 
         Map<String, Object> params = new HashMap<>();
         if (!StringUtils.isEmpty(termo)) {

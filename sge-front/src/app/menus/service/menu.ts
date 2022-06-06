@@ -27,10 +27,14 @@ export const cliente: Menu[] = [
   {
     label: 'Cadastros',
     items: [
-      {label: 'Forma de Pagamento', routerLink: '/sge/cadastros/forma-pagamento'},
+      {label: 'Produtos', routerLink: '/sge/cadastros/produto'},
+      { label: 'Cadastros Auxiliares',
+      items: [
+      {label: 'Formas de Pagamento', routerLink: '/sge/cadastros/forma-pagamento'},
       {label: 'Status do Pedido', routerLink: '/sge/cadastros/status-pedido'},
-      {label: 'Unidade de Medida', routerLink: '/sge/cadastros/unidade-medida'},
+      {label: 'Unidades de Medida', routerLink: '/sge/cadastros/unidade-medida'},
       {label: 'Veículos', routerLink: '/sge/cadastros/veiculo'},
+      ]}
     ]
   }
 ];

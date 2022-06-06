@@ -11,6 +11,8 @@ import { FormaPagamentoComponent } from './forma-pagamento/forma-pagamento.compo
 import { FormaPagamentoCadastroComponent } from './forma-pagamento-cadastro/forma-pagamento-cadastro.component';
 import { StatusPedidoComponent } from './status-pedido/status-pedido.component';
 import { StatusPedidoCadastroComponent } from './status-pedido-cadastro/status-pedido-cadastro.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { ProdutoCadastroComponent } from './produto-cadastro/produto-cadastro.component';
 
 const cadastrosRouters: Routes = [
   {
@@ -41,6 +43,13 @@ const cadastrosRouters: Routes = [
       {path: 'cadastro', component: StatusPedidoCadastroComponent},
       {path: 'cadastro/:id', component: StatusPedidoCadastroComponent}
     ]
+  },
+  {
+    path: 'produto', children: [
+      {path: '', component: ProdutoComponent},
+      {path: 'cadastro', component: ProdutoCadastroComponent},
+      {path: 'cadastro/:id', component: ProdutoCadastroComponent}
+    ]
   }
 
 ];
@@ -54,7 +63,9 @@ const cadastrosRouters: Routes = [
     FormaPagamentoComponent,
     FormaPagamentoCadastroComponent,
     StatusPedidoComponent,
-    StatusPedidoCadastroComponent
+    StatusPedidoCadastroComponent,
+    ProdutoComponent,
+    ProdutoCadastroComponent
   ],
   imports: [
     CommonModule,
