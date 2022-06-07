@@ -16,14 +16,21 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card';
 
-import { DialogConfirmComponent } from './components/dialog-confirm/dialog-confirm.component';
+import {DialogConfirmComponent } from './components/dialog-confirm/dialog-confirm.component';
 import {DialogConfirmService} from './components/dialog-confirm/dialog-confirm.service';
+
+// import {GenMaskDirective} from './directives/gen-mask.directive';
+// import {GenMaskMoneyDirective} from './directives/gen-mask-money.directive';
 
 
 @NgModule({
   declarations: [
-    DialogConfirmComponent
+    DialogConfirmComponent,
+    // GenMaskDirective,
+    // GenMaskMoneyDirective
   ],
   imports: [
     CommonModule,
@@ -44,7 +51,9 @@ import {DialogConfirmService} from './components/dialog-confirm/dialog-confirm.s
     MatTableModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule,
+    MatCardModule
     // material imports
   ],
   entryComponents: [DialogConfirmComponent],
@@ -56,6 +65,8 @@ import {DialogConfirmService} from './components/dialog-confirm/dialog-confirm.s
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    // GenMaskDirective,
+    // GenMaskMoneyDirective,
 
     // material exports
     MatFormFieldModule,
@@ -71,7 +82,9 @@ import {DialogConfirmService} from './components/dialog-confirm/dialog-confirm.s
     MatTableModule,
     MatDialogModule,
     DialogConfirmComponent,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule,
+    MatCardModule
     // material exports
   ]
 })

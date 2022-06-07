@@ -27,6 +27,7 @@ export const cliente: Menu[] = [
   {
     label: 'Cadastros',
     items: [
+      {label: 'Pessoas', routerLink: '/sge/cadastros/pessoa'},
       {label: 'Produtos', routerLink: '/sge/cadastros/produto'},
       { label: 'Cadastros Auxiliares',
       items: [

@@ -7,12 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import br.com.sgelider.sge.tenancy.domain.Cidade;
+import br.com.sgelider.sge.tenancy.domain.Pessoa;
 
-
-public interface CidadeRepository extends JpaRepository<Cidade, Integer> {
+@Repository
+public interface PessoaRepository extends JpaRepository<Pessoa, Integer> {
 	
-	@Query("select c from Cidade c where LOWER(c.nome) like LOWER(?1)")
-    List<Cidade> findByNome(String nome, Sort sort);
-
+	@Query("select p from Pessoa p where LOWER(p.nome) like LOWER(?1)")
+	List<Pessoa> findByNome(String nome, Sort sort);
 }

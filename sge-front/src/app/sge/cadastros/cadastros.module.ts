@@ -14,6 +14,8 @@ import { StatusPedidoCadastroComponent } from './status-pedido-cadastro/status-p
 import { ProdutoComponent } from './produto/produto.component';
 import { ProdutoCadastroComponent } from './produto-cadastro/produto-cadastro.component';
 import { CidadeComponent } from './cidade/cidade.component';
+import { PessoaComponent } from './pessoa/pessoa.component';
+import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 
 const cadastrosRouters: Routes = [
   {
@@ -56,7 +58,14 @@ const cadastrosRouters: Routes = [
     path: 'cidade', children: [
       {path: '', component: CidadeComponent},
     ]
-  }
+  },
+  {
+    path: 'pessoa', children: [
+      {path: '', component: PessoaComponent},
+      {path: 'cadastro', component: PessoaCadastroComponent},
+      {path: 'cadastro/:id', component: PessoaCadastroComponent}
+    ]
+  },
 
 ];
 
@@ -72,7 +81,9 @@ const cadastrosRouters: Routes = [
     StatusPedidoCadastroComponent,
     ProdutoComponent,
     ProdutoCadastroComponent,
-    CidadeComponent
+    CidadeComponent,
+    PessoaComponent,
+    PessoaCadastroComponent
   ],
   imports: [
     CommonModule,

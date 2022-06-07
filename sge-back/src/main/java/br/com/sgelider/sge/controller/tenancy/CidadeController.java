@@ -26,17 +26,10 @@ public class CidadeController {
 	@Autowired
 	private CidadeRepository cidadeRepository;
 	
-	@PutMapping("/sge/cadastros/cidade")
-	public ResponseEntity salvar(@RequestBody @Validated Cidade cidade) {
-		cidadeRepository.save(cidade);
-		return ResponseEntity.ok().build();
-	}
-	
 	@GetMapping("/sge/cadastros/cidade")
     public ResponseEntity<Page<Cidade>> buscar(@PageableDefault(sort = "nome") Pageable paginacao, String termo) {
         Page<Cidade> pageable = cidadeService.findAll(paginacao, termo);
 
         return ResponseEntity.ok(pageable);
-    
 	}
 }

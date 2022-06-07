@@ -1,0 +1,46 @@
+<div *ngIf="falhaCarregarComponente">{{falhaCarregarComponente}}</div>
+
+  <div class="nav-titulo">
+    <div class="titulo">Pessoas</div>
+    <div>
+      <button mat-icon-button (click)="cadastrar()" matTooltip="Novo Cadastro"  color="primary">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-icon-button (click)="editar()" color="primary" matTooltip="Editar" [disabled]="selecionado.isEmpty()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="excluir()" matTooltip="Excluir"  color="warn" [disabled]="selecionado.isEmpty()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+<div [formGroup]="form">
+
+  <mat-form-field class="col-md-12" appearance="outline">
+    <mat-label>Pesquisar...</mat-label>
+    <input matInput type="text" formControlName="termo" maxlength="100" autocomplete="off">
+  </mat-form-field>
+
+</div>
+
+<table mat-table matSort [dataSource]="data" class="w-100">
+  <ng-container [matColumnDef]="h.field" *ngFor="let h of headers">
+
+    <ng-container [ngSwitch]="h.field">
+      <ng-container *ngSwitchDefault>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{h.header}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[h.field]}} </td>
+      </ng-container>
+    </ng-container>
+
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"
+      [ngClass]="{'row-selected': selecionado.isSelected(row)}"
+      (click)="selecionado.toggle(row)" (dblclick)="editar(row)"></tr>
+
+</table>
+
+<mat-paginator [length]="resultsLength" [pageSize]="15"></mat-paginator>

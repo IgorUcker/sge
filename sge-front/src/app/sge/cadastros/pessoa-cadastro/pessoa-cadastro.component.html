@@ -1,0 +1,99 @@
+<ng-template #carregandoTpl>
+  Carregando ...
+</ng-template>
+
+<div class="nav-titulo">
+  <div class="titulo">Cadastro | Pessoa</div>
+  <div>
+    <button mat-icon-button (click)="voltar()" color="primary" matTooltip="Voltar">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button mat-icon-button  (click)="salvar()" [disabled]="form.invalid || envinandoFormulario" color="primary" matTooltip="Salvar">
+      <mat-icon>done</mat-icon>
+    </button>
+  </div>
+</div>
+
+<form *ngIf="!loadingMsg; else carregandoTpl" [formGroup]="form" class="row" (submit)="salvar()">
+
+  <mat-form-field class="col-md-2" appearance="outline">
+    <mat-label class="required">Tipo Pessoa</mat-label>
+    <mat-select formControlName="tipoPessoa" (selectionChange)="tipoPessoaChange()">
+      <mat-option *ngFor="let t of tipo | keyvalue" [value]="t.key">
+        {{t.value.value}}
+      </mat-option>
+    </mat-select>
+    <!-- <mat-error matErrorMessages [control]="form.controls['tipoPessoa']"></mat-error> -->
+  </mat-form-field>
+
+  <mat-form-field class="col-md-4" *ngIf="form.value.tipoPessoa == 'FISICA'" appearance="outline">
+    <mat-label>CPF</mat-label>
+    <input matInput type="text" formControlName="inscFederal">
+    <!-- <mat-error matErrorMessages [control]="form.controls['inscFederal']"></mat-error> -->
+  </mat-form-field>
+
+  <mat-form-field class="col-md-4" *ngIf="form.value.tipoPessoa == 'JURIDICA'" appearance="outline">
+    <mat-label>CNPJ</mat-label>
+    <input matInput type="text" formControlName="inscFederal">
+    <!-- <mat-error matErrorMessages [control]="form.controls['inscFederal']"></mat-error> -->
+  </mat-form-field>
+
+  <mat-form-field class="col-md-6" appearance="outline">
+    <mat-label class="required">Nome</mat-label>
+    <input matInput type="text" formControlName="nome" maxlength="100">
+    <!-- <mat-error matErrorMessages [control]="form.controls['nome']"></mat-error> -->
+  </mat-form-field>
+
+  <div class="col-md-12 pb-4">
+    <mat-card>
+      <div class="d-flex justify-content-start">
+        <!-- <mat-checkbox class="pr-4" (change)="funcionarioChange()" formControlName="funcionario" color="primary">
+          Funcionário
+        </mat-checkbox> -->
+        <mat-checkbox class="pr-4" matInput color="primary">
+          Funcionário
+        </mat-checkbox>
+      </div>
+    </mat-card>
+  </div>
+
+  <mat-tab-group class="col-md-12">
+    <mat-tab label="Endereço">
+      <div class="col-12 pt-3"></div>
+      <mat-form-field class="col-md-8" appearance="outline">
+        <mat-label>Endereço</mat-label>
+        <input matInput type="text" formControlName="endereco" maxlength="200">
+        <!-- <mat-error matErrorMessages [control]="form.controls['endereco']"></mat-error> -->
+      </mat-form-field>
+      <mat-form-field class="col-md-4" appearance="outline">
+        <mat-label>Número</mat-label>
+        <input matInput type="text" formControlName="numero" maxlength="50">
+        <!-- <mat-error matErrorMessages [control]="form.controls['endereco']"></mat-error> -->
+      </mat-form-field>
+      <mat-form-field class="col-md-4" appearance="outline">
+        <mat-label>Referência</mat-label>
+        <input matInput type="text" formControlName="complemento" maxlength="50">
+        <!-- <mat-error matErrorMessages [control]="form.controls['endereco']"></mat-error> -->
+      </mat-form-field>
+      <mat-form-field class="col-md-4" appearance="outline">
+        <mat-label>Bairro</mat-label>
+        <input matInput type="text" formControlName="bairro" maxlength="120">
+        <!-- <mat-error matErrorMessages [control]="form.controls['endereco']"></mat-error> -->
+      </mat-form-field>
+      <mat-form-field class="col-md-4" appearance="outline">
+        <mat-label>CEP</mat-label>
+        <input matInput type="text" formControlName="cep" maxlength="9">
+        <!-- <mat-error matErrorMessages [control]="form.controls['endereco']"></mat-error> -->
+      </mat-form-field>
+
+    </mat-tab>
+
+    <mat-tab label="Contato(s)">
+      <div class="col-12 pt-3"></div>
+    </mat-tab>
+
+
+  </mat-tab-group>
+
+
+</form>

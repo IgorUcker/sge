@@ -32,7 +32,7 @@ public class ProdutoService {
 
         Map<String, Object> params = new HashMap<>();
         if (!StringUtils.isEmpty(termo)) {
-            sql.append(params.isEmpty() ? " where " : " and ").append(" (p.produto ilike :termo or p.cod_unidade_medida like :termo) ");
+            sql.append(params.isEmpty() ? " where " : " and ").append(" (p.nome ilike :termo) ");
             params.put("termo", "%" + termo + "%");
         }
 

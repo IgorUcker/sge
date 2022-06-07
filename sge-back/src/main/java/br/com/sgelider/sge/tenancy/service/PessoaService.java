@@ -15,44 +15,44 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import br.com.sgelider.sge.tenancy.domain.Cidade;
+import br.com.sgelider.sge.tenancy.domain.Pessoa;
 import br.com.sgelider.sge.utils.DatabaseUtils;
 
-
 @Service
-public class CidadeService {
+public class PessoaService {
 	
 	@PersistenceContext
     private EntityManager manager;
 	
-	 public Page<Cidade> findAll(Pageable paginacao, String termo) {
+	 public Page<Pessoa> findAll(Pageable paginacao, String termo) {
 	        StringBuilder sql = new StringBuilder();
-	        sql.append("select * from modelo.cidade c ");
+	        sql.append("select * from modelo.pessoa p ");
 
 	        Map<String, Object> params = new HashMap<>();
 	        if (!StringUtils.isEmpty(termo)) {
-	            sql.append(params.isEmpty() ? " where " : " and ").append(" (c.nome ilike :termo or c.estado like :termo) ");
+	            sql.append(params.isEmpty() ? " where " : " and ").append(" (p.nome ilike :termo or p.tipo_pessoa like :termo) ");
 	            params.put("termo", "%" + termo + "%");
 	        }
 
 	        StringBuilder sqlCount = new StringBuilder(sql.toString());
 
-	        sql.append(" order by c.").append(DatabaseUtils.toSqlName(paginacao.getSort().get().findFirst().get().getProperty()))
+	        sql.append(" order by p.").append(DatabaseUtils.toSqlName(paginacao.getSort().get().findFirst().get().getProperty()))
 	                .append(" ")
 	                .append(paginacao.getSort().get().findFirst().get().getDirection().name());
 
-	        Query q = manager.createNativeQuery(sql.append(" offset ").append(paginacao.getOffset()).append(" limit ").append(paginacao.getPageSize()).toString(), Cidade.class);
+	        Query q = manager.createNativeQuery(sql.append(" offset ").append(paginacao.getOffset()).append(" limit ").append(paginacao.getPageSize()).toString(), Pessoa.class);
 	        params.entrySet().forEach(e -> {
 	            q.setParameter(e.getKey(), e.getValue());
 	        });
 
-	        List<Cidade> findAll = q.getResultList();
+	        List<Pessoa> findAll = q.getResultList();
 
-	        Query qTotal = manager.createNativeQuery(sqlCount.toString().replace("select *", "select count(c.id)"));
+	        Query qTotal = manager.createNativeQuery(sqlCount.toString().replace("select *", "select count(p.id)"));
 	        params.entrySet().forEach(e -> {
 	            qTotal.setParameter(e.getKey(), e.getValue());
 	        });
 
 	        return new PageImpl<>(findAll, paginacao, ((BigInteger) qTotal.getSingleResult()).longValue());
 	    }
+
 }
