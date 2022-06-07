@@ -30,6 +30,7 @@ export const cliente: Menu[] = [
       {label: 'Produtos', routerLink: '/sge/cadastros/produto'},
       { label: 'Cadastros Auxiliares',
       items: [
+      {label: 'Cidades', routerLink: '/sge/cadastros/cidade'},
       {label: 'Formas de Pagamento', routerLink: '/sge/cadastros/forma-pagamento'},
       {label: 'Status do Pedido', routerLink: '/sge/cadastros/status-pedido'},
       {label: 'Unidades de Medida', routerLink: '/sge/cadastros/unidade-medida'},

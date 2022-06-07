@@ -1,9 +1,9 @@
 <div *ngIf="falhaCarregarComponente">{{falhaCarregarComponente}}</div>
 
   <div class="nav-titulo">
-    <div class="titulo">Produtos</div>
+    <div class="titulo">Cidades</div>
     <div>
-      <button mat-icon-button (click)="cadastrar()" matTooltip="Novo Cadastro"  color="primary">
+      <!-- <button mat-icon-button (click)="cadastrar()" matTooltip="Novo Cadastro"  color="primary">
         <mat-icon>add</mat-icon>
       </button>
       <button mat-icon-button (click)="editar()" color="primary" matTooltip="Editar" [disabled]="selecionado.isEmpty()">
@@ -11,7 +11,7 @@
       </button>
       <button mat-icon-button (click)="excluir()" matTooltip="Excluir"  color="warn" [disabled]="selecionado.isEmpty()">
         <mat-icon>delete</mat-icon>
-      </button>
+      </button> -->
     </div>
   </div>
 
@@ -32,10 +32,6 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> {{h.header}} </th>
         <td mat-cell *matCellDef="let element"> {{element[h.field]}} </td>
       </ng-container>
-      <ng-container *ngSwitchCase="'codUnidadeMedida.nome'">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{h.header}} </th>
-        <td mat-cell *matCellDef="let element"> {{element.codUnidadeMedida.nome}} </td>
-      </ng-container>
     </ng-container>
 
   </ng-container>
@@ -43,7 +39,7 @@
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
   <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"
       [ngClass]="{'row-selected': selecionado.isSelected(row)}"
-      (click)="selecionado.toggle(row)" (dblclick)="editar(row)"></tr>
+      (click)="selecionado.toggle(row)"></tr>
 
 </table>
 
