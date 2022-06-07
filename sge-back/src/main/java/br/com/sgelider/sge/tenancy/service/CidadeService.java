@@ -55,6 +55,4 @@ public class CidadeService {
 
 	        return new PageImpl<>(findAll, paginacao, ((BigInteger) qTotal.getSingleResult()).longValue());
 	    }
-
-
 }
