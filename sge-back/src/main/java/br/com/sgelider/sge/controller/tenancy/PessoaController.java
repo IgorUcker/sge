@@ -1,5 +1,6 @@
 package br.com.sgelider.sge.controller.tenancy;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +56,5 @@ public class PessoaController {
     	pessoaRepository.deleteById(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
-	
+    	
 }

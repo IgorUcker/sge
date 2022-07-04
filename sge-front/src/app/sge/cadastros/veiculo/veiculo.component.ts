@@ -29,6 +29,7 @@ export class VeiculoComponent implements OnInit {
   headers: MatTableHeaders[];
   loading: boolean;
 
+
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 

@@ -11,5 +11,10 @@ export interface Pessoa {
   cep?: string;
   numero?: string;
   bairro?: string;
+  fone1?: string;
+  fone2?: string;
+  email?: string;
+  funcionario?: boolean;
+
   idCidade?: Cidade;
 }

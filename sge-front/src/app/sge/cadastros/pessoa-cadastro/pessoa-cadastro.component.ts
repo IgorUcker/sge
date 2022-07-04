@@ -41,6 +41,10 @@ export class PessoaCadastroComponent implements OnInit {
       bairro: new FormControl(),
       numero: new FormControl(),
       idCidade: new FormControl(),
+      fone1: new FormControl(),
+      fone2: new FormControl(),
+      email: new FormControl(),
+      funcionario: new FormControl(),
     });
 
     this._activatedRoute.params.subscribe(params => {

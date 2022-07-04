@@ -4,18 +4,22 @@ import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import br.com.sgelider.sge.tenancy.domain.Pessoa;
+import br.com.sgelider.sge.tenancy.repository.PessoaRepository;
 import br.com.sgelider.sge.utils.DatabaseUtils;
 
 @Service
@@ -23,6 +27,8 @@ public class PessoaService {
 	
 	@PersistenceContext
     private EntityManager manager;
+	@Autowired
+	private PessoaRepository pessoaRepository;
 	
 	 public Page<Pessoa> findAll(Pageable paginacao, String termo) {
 	        StringBuilder sql = new StringBuilder();
@@ -54,5 +60,5 @@ public class PessoaService {
 
 	        return new PageImpl<>(findAll, paginacao, ((BigInteger) qTotal.getSingleResult()).longValue());
 	    }
-
+	 
 }

@@ -47,10 +47,7 @@
   <div class="col-md-12 pb-4">
     <mat-card>
       <div class="d-flex justify-content-start">
-        <!-- <mat-checkbox class="pr-4" (change)="funcionarioChange()" formControlName="funcionario" color="primary">
-          Funcionário
-        </mat-checkbox> -->
-        <mat-checkbox class="pr-4" matInput color="primary">
+        <mat-checkbox class="pr-4" formControlName="funcionario" matInput color="primary">
           Funcionário
         </mat-checkbox>
       </div>
@@ -59,7 +56,7 @@
 
   <mat-tab-group class="col-md-12">
     <mat-tab label="Endereço">
-      <div class="col-12 pt-3"></div>
+      <div class="col-md-12 pt-3"></div>
       <mat-form-field class="col-md-8" appearance="outline">
         <mat-label>Endereço</mat-label>
         <input matInput type="text" formControlName="endereco" maxlength="200">
@@ -85,15 +82,27 @@
         <input matInput type="text" formControlName="cep" maxlength="9">
         <!-- <mat-error matErrorMessages [control]="form.controls['endereco']"></mat-error> -->
       </mat-form-field>
-
     </mat-tab>
 
     <mat-tab label="Contato(s)">
-      <div class="col-12 pt-3"></div>
+      <div class="col-md-12 pt-3"></div>
+        <mat-form-field class="col-md-3" appearance="outline">
+          <mat-label>Tel. Principal</mat-label>
+          <input matInput type="text" formControlName="fone1" maxlength="20">
+          <!-- <mat-error matErrorMessages [control]="form.controls['fone1']"></mat-error> -->
+        </mat-form-field>
+        <mat-form-field class="col-md-3" appearance="outline">
+          <mat-label>Tel. Alternativo</mat-label>
+          <input matInput type="text" formControlName="fone2" maxlength="20">
+          <!-- <mat-error matErrorMessages [control]="form.controls['fone1']"></mat-error> -->
+        </mat-form-field>
+        <mat-form-field class="col-md-6" appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="text" formControlName="email" maxlength="150">
+          <!-- <mat-error matErrorMessages [control]="form.controls['email']"></mat-error> -->
+        </mat-form-field>
     </mat-tab>
 
-
   </mat-tab-group>
-
 
 </form>

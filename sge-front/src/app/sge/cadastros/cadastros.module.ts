@@ -83,7 +83,7 @@ const cadastrosRouters: Routes = [
     ProdutoCadastroComponent,
     CidadeComponent,
     PessoaComponent,
-    PessoaCadastroComponent
+    PessoaCadastroComponent,
   ],
   imports: [
     CommonModule,
